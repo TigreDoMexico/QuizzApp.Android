@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">QuizzApp</string>
+    <string name="icon_description">Logo Quizz</string>
+    <string name="start_button">Iniciar Quizz</string>
+    <string name="default_quizztext">Pergunta Default</string>
+    <string name="default_answer1">Resposta 1</string>
+    <string name="default_answer2">Resposta 2</string>
+    <string name="default_answer3">Resposta 3</string>
 </resources>
