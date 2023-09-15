@@ -1,11 +1,12 @@
 package com.tigredomexico.quizzapp.services;
 
 import com.tigredomexico.quizzapp.models.Quizz;
+import com.tigredomexico.quizzapp.models.Result;
 
 import java.util.List;
 
 public class QuizzService {
-    private List<Quizz> quizzes;
+    private final List<Quizz> quizzes;
     private int currentQuizz = 0;
     private int score = 0;
 
@@ -28,6 +29,10 @@ public class QuizzService {
             return true;
         }
         return false;
+    }
+
+    public Result GetQuizzResults() {
+        return new Result(this.score, this.quizzes.size());
     }
 
     public Quizz GetCurrentQuizz() {

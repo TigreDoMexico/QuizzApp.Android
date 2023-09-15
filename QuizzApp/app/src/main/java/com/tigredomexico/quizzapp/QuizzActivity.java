@@ -3,6 +3,7 @@ package com.tigredomexico.quizzapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.tigredomexico.quizzapp.models.Quizz;
+import com.tigredomexico.quizzapp.models.Result;
 import com.tigredomexico.quizzapp.services.QuizzService;
 
 import java.util.ArrayList;
@@ -42,6 +44,8 @@ public class QuizzActivity extends AppCompatActivity {
 
         if(service.SetNextCurrentQuizz()) {
             configureNextQuizz();
+        } else {
+            redirectToResultActivity();
         }
     };
 
@@ -61,8 +65,16 @@ public class QuizzActivity extends AppCompatActivity {
             btn.setText(currentQuizz.getResposta(i));
 
             btn.setOnClickListener(answerClickListener);
-            btn.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.action_principal));
+            btn.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_200));
         }
+    }
+
+    private void redirectToResultActivity() {
+        Intent intent = new Intent(QuizzActivity.this, ResultActivity.class);
+        Result resultQuizz = service.GetQuizzResults();
+
+        intent.putExtra("result", resultQuizz);
+        startActivity(intent);
     }
 
     private void configureNextQuizz() {
