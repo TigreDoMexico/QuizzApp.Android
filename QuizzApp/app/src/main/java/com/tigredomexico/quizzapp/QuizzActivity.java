@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class QuizzActivity extends AppCompatActivity {
 
-    private QuizzService service = new QuizzService();
+    private final QuizzService service = new QuizzService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,18 @@ public class QuizzActivity extends AppCompatActivity {
         configureQuizz();
     }
 
-    private View.OnClickListener answerClickListener = view -> {
+    private final View.OnClickListener answerClickListener = view -> {
         Button button = findViewById(view.getId());
         Integer tagPressed = Integer.parseInt(view.getTag().toString());
 
         boolean isCorrect = service.UpdateScoreBySelection(tagPressed);
 
+        System.out.println(button.getText());
+
         if(isCorrect) {
-            button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.correct_answer));
+            button.setBackgroundTintList(ContextCompat.getColorStateList(QuizzActivity.this, R.color.correct_answer));
         } else {
-            button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.wrong_answer));
+            button.setBackgroundTintList(ContextCompat.getColorStateList(QuizzActivity.this, R.color.wrong_answer));
         }
 
         if(service.SetNextCurrentQuizz()) {
@@ -49,7 +51,7 @@ public class QuizzActivity extends AppCompatActivity {
         TextView quizzTitle = findViewById(R.id.quizzTitle);
         quizzTitle.setText(currentQuizz.getPergunta());
 
-        ArrayList<Integer> answers = new ArrayList<Integer>();
+        ArrayList<Integer> answers = new ArrayList<>();
         answers.add(R.id.answer1);
         answers.add(R.id.answer2);
         answers.add(R.id.answer3);
@@ -66,13 +68,9 @@ public class QuizzActivity extends AppCompatActivity {
     private void configureNextQuizz() {
         CountDownTimer timer = new CountDownTimer(1000, 500) {
             @Override
-            public void onTick(long millisUntilFinished) {
-            }
-
+            public void onTick(long millisUntilFinished) { }
             @Override
-            public void onFinish() {
-                configureQuizz();
-            }
+            public void onFinish() { configureQuizz(); }
         };
 
         timer.start();
