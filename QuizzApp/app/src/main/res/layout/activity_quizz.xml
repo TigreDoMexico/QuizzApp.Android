@@ -27,8 +27,8 @@
 
     <Button
         android:id="@+id/answer1"
-        android:layout_width="285dp"
-        android:layout_height="55dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="62dp"
@@ -43,28 +43,28 @@
 
     <Button
         android:id="@+id/answer2"
-        android:layout_width="285dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="62dp"
+        android:layout_marginBottom="72dp"
         android:background="@color/action_principal"
         android:tag="1"
         android:text="@string/default_answer2"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/answer3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer1" />
 
     <Button
         android:id="@+id/answer3"
-        android:layout_width="285dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="62dp"
-        android:layout_marginBottom="162dp"
+        android:layout_marginBottom="190dp"
         android:background="@color/action_principal"
         android:tag="2"
         android:text="@string/default_answer3"
@@ -72,7 +72,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

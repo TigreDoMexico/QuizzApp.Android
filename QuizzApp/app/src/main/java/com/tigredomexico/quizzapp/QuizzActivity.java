@@ -64,7 +64,7 @@ public class QuizzActivity extends AppCompatActivity {
     }
 
     private void configureNextQuizz() {
-        CountDownTimer timer = new CountDownTimer(2000, 1000) {
+        CountDownTimer timer = new CountDownTimer(1000, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
             }
