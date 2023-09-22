@@ -10,6 +10,10 @@ public class QuizzService {
     private int currentQuizz = 0;
     private int score = 0;
 
+    public QuizzService(List<Quizz> givenQuizz) {
+        quizzes = givenQuizz;
+    }
+
     public QuizzService() {
         quizzes = Quizz.GerarPerguntasAleatorias();
     }
