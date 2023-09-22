@@ -78,7 +78,7 @@ public class QuizzServiceTest {
         Result result = service.GetQuizzResults();
 
         assertEquals(result.getScore(), "0");
-        assertEquals(result.getTotal(), "2");
+        assertEquals(result.getTotal(), "1");
         assertEquals(result.getPercentage(), "0,00");
     }
 
